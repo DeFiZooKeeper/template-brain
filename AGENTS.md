@@ -35,3 +35,16 @@ Focus exclusively on {{DOMAIN}} work. Deep technical knowledge, code review, arc
 
 - **Repo**: `DeFiZooKeeper/{{AGENT_ID}}-brain`
 - **Purpose**: Workspace for {{AGENT_NAME}}'s {{DOMAIN}} expertise
+
+## Git Configuration
+
+When cloning this brain repo, set a per-repo git name so commits show who made the change:
+
+```bash
+git clone https://github.com/DeFiZooKeeper/{{AGENT_ID}}-brain.git
+cd {{AGENT_ID}}-brain
+git config user.name "{{AGENT_NAME}}"
+git config user.email "{{AGENT_ID}}@defizoo.ai"
+```
+
+This ensures commits from {{AGENT_NAME}} show as "{{AGENT_NAME}}" rather than "Zoo Keeper" or another agent.

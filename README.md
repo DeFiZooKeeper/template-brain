@@ -80,3 +80,21 @@ Add the brain to `docker-compose.yml` services or orchestration config if using 
 2. Push to the newly created repo  
 3. Update orchestrator registration files  
 4. Test the agent's ability to clone and work in its brain repo
+
+## Git Commit Attribution
+
+Each agent brain should have its own git committer name so pushes show who made the change:
+
+```bash
+# Set a per-repo name that shows in git history
+git config user.name "{{AGENT_NAME}}"
+git config user.email "{{AGENT_ID}}@defizoo.ai"
+```
+
+This way:
+- Zoo Keeper commits show as "Zoo Keeper"
+- HR Parrot commits show as "HR Parrot"
+- Frontend Elephant commits show as "Frontend Elephant"
+- etc.
+
+The name is stored in `.git/config` (local to the repo) so each agent's brain repo will show the correct contributor name.
