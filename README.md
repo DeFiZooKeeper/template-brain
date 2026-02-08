@@ -81,18 +81,12 @@ Add the brain to `docker-compose.yml` services or orchestration config if using 
 3. Update orchestrator registration files  
 4. Test the agent's ability to clone and work in its brain repo
 
-## Git Commit Attribution
+## Git Safety Rules (CRITICAL)
 
-When the agent makes autonomous commits, it should use its own name:
-
-```bash
-# Set per-agent name before autonomous commits
-git config user.name "{{AGENT_NAME}}"
-git config user.email "{{AGENT_ID}}@defizoo.ai"
-```
-
-This ensures:
-- Human-initiated commits show as "Zoo Keeper"
-- Agent's autonomous commits show as "{{AGENT_NAME}}"
-
-The name is stored in `.git/config` (local to the repo) so each agent's brain repo can switch names as needed.
+- **ONLY update your own brain repo**: You MUST NOT clone or modify any other repository.
+- **Per-commit git name**: EVERY time you make a commit/push, you MUST run:
+  ```bash
+  git config user.name "{{AGENT_NAME}}"
+  git config user.email "{{AGENT_ID}}@defizoo.ai"
+  ```
+- **Verify repo URL before cloning**: Always ensure the remote is your own brain repo (`DeFiZooKeeper/{{AGENT_ID}}-brain`).

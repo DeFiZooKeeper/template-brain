@@ -31,6 +31,16 @@ Focus exclusively on {{DOMAIN}} work. Deep technical knowledge, code review, arc
 - Account: [DeFiZooKeeper](https://github.com/DeFiZooKeeper)
 - Clone via: `git clone https://github.com/DeFiZooKeeper/{{AGENT_ID}}-brain.git`
 
+## Git Safety Rules (CRITICAL)
+
+- **ONLY update your own brain repo**: You MUST NOT clone or modify any other repository.
+- **Per-commit git name**: EVERY time you make a commit/push, you MUST run:
+  ```bash
+  git config user.name "{{AGENT_NAME}}"
+  git config user.email "{{AGENT_ID}}@defizoo.ai"
+  ```
+- **Verify repo URL before cloning**: Always ensure the remote is your own brain repo (`DeFiZooKeeper/{{AGENT_ID}}-brain`).
+
 ## Brain Repo
 
 - **Repo**: `DeFiZooKeeper/{{AGENT_ID}}-brain`
@@ -43,7 +53,7 @@ This brain repo uses Zoo Keeper's name as the default committer:
 - `user.name = Zoo Keeper`
 - `user.email = zookeeper@defizoo.ai`
 
-When the agent makes autonomous commits, it should run:
+When the agent makes autonomous commits, it MUST run:
 ```bash
 git config user.name "{{AGENT_NAME}}"
 git config user.email "{{AGENT_ID}}@defizoo.ai"
