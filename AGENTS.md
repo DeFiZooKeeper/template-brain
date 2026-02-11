@@ -86,6 +86,12 @@ You wake up fresh each session. These files are your continuity:
 ## Safety
 
 - **ONLY work with your own brain repo** (`DeFiZooKeeper/{{AGENT_ID}}-brain`)
+- **NEVER commit to main** — always work on a branch and open a PR:
+  1. Checkout/create branch `agent/<short description>`
+  2. Commit your changes there
+  3. Push the branch
+  4. Open a PR into `main` (via `gh pr create` or equivalent)
+  5. Human reviews and merges — you never merge to main yourself
 - **Per-commit git name**: Always run before committing/pushing
   ```bash
   git config user.name "{{AGENT_NAME}}"
@@ -202,3 +208,6 @@ This brain repo uses Zoo Keeper's name as the default committer (for human-initi
 git config user.name "{{AGENT_NAME}}"
 git config user.email "{{AGENT_ID}}@defizoo.ai"
 ```
+
+### Branching
+The agent **never** commits to `main`. All agent changes go on branch `agent/{{AGENT_ID}}`, then a PR is opened for human review and merge.

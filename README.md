@@ -93,6 +93,7 @@ Add the brain to `docker-compose.yml` services or orchestration config if using 
 ## Git Safety Rules (CRITICAL)
 
 - **ONLY update your own brain repo**: You MUST NOT clone or modify any other repository.
+- **NEVER commit to main**: Always work on branch `agent/{{AGENT_ID}}`, push, and open a PR — human merges.
 - **Per-commit git name**: EVERY time you make a commit/push, you MUST run:
   ```bash
   git config user.name "{{AGENT_NAME}}"
