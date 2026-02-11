@@ -1,8 +1,7 @@
-# HEARTBEAT.md
+# Heartbeat Checklist
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-
-# Future ideas:
-# - Check brain repo status (uncommitted knowledge)
-# - Pull latest from brain repo
-# - Summarize cross-agent activity
+# Quick pulse check
+- Unanswered @mentions in #{{DOMAIN}} or key channels? 🔔
+- Shared inbox or tickets — anything urgent? 📬
+- Team calendar — event in next 4h? 📅  
+- Anything worth surfacing to the team? 💡

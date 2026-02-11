@@ -1,45 +1,61 @@
-# TOOLS.md — {{AGENT_NAME}} Notes
+# TOOLS.md - DeFiZoo {{DOMAIN}} Notes
 
-## GitHub Access
+Skills define *how* tools work. This file is for *your* specifics — the stuff unique to your team's setup.
 
-**Account:** [DeFiZooKeeper](https://github.com/DeFiZooKeeper) (personal account)
+## What Goes Here
 
-Tools available:
-- `git` — configured as "Zoo Keeper <zookeeper@defizoo.ai>"
+Things like:
 
-### Brain Repo
+* Discord channels and their purpose
+* Available {{DOMAIN}} tools, repos, APIs, environments
+* SSH hosts, credentials (placeholders only)
+* Team conventions and workflows
+* Anything environment-specific
 
-| Agent | Repo | Purpose |
-|-------|------|---------|
-| {{AGENT_NAME}} | `DeFiZooKeeper/{{AGENT_ID}}-brain` | {{DOMAIN}} workspace |
+## Agent Roster (Cross-Agent Queries)
 
-### Other Repos
+When you need info outside your {{DOMAIN}}, ask the right agent via `sessions_send`. Session key format: `agent:<id>:main`.
 
-_(Add project repos as you work with them)_
+| Agent | Name | Ask when you need... |
+|-------|------|----------------------|
+| `orchestrator` | head agent | routing, cross-domain coordination, escalation, creating new agents, "who owns this?" |
+| `hr` | HR Horse 🐴 | team structure, who does what, policies, org |
+| `marketing` | Marketing Monkey 🐵 | campaigns, messaging, content, positioning |
+| `frontend` | Frontend Falcon 🦅 | UI, React, client-side, integration points |
+| `api` | API Alligator 🐊 | APIs, services, data models, endpoints |
+| `solidity` | Solidity Shark 🦈 | contracts, deployments, chain, ABIs |
 
-### Quick Reference
+**Add/remove rows** as your org's agents change. Keep this in sync across all agent repos — it's shared org structure.
 
-```bash
-# Clone your brain repo
-git clone https://github.com/DeFiZooKeeper/{{AGENT_ID}}-brain.git
-
-# Create a branch and PR
-cd {{AGENT_ID}}-brain
-git checkout -b feat/my-change
-# ... make changes ...
-git add -A && git commit -m "feat: description"
-git push -u origin HEAD
-gh pr create --title "Title" --body "Description"
-```
-
-## Model Providers
-
-| Provider | Model | Role |
-|----------|-------|------|
-| OpenRouter | `qwen/qwen3-coder-next` | Primary |
+**Config required:** In `openclaw.json`, set `tools.agentToAgent.enabled: true` and add all agents to `tools.agentToAgent.allow` so they can query each other.
 
 ## Discord Channels
 
-| Channel | Agent | Notes |
-|---------|-------|-------|
-| `#{{DOMAIN}}` | {{AGENT_NAME}} | No mention required |
+| Channel | Purpose |
+|---------|---------|
+| #{{DOMAIN}} | Primary {{DOMAIN}} channel — your main home |
+| _(add others)_ | |
+
+## Examples (adapt for {{DOMAIN}})
+
+```markdown
+### Repositories
+- main-contracts → Smart contracts in `/contracts/`
+- frontend-app → Next.js frontend at `/frontend/`
+
+### Environments  
+- dev → Local development
+- staging → `https://staging.defizoo.com`
+- prod → `https://app.defizoo.com`
+
+### API Keys (placeholders only — never real values)
+- mainnet → `ALCHEMY_API_KEY_MAINNET="REDACTED"`
+```
+
+## Why Separate?
+
+Skills are shared. Your team's setup is yours. Keep them apart so you can update skills without losing notes, and share without leaking infrastructure.
+
+***
+
+Add whatever helps you serve the team. This is your cheat sheet.

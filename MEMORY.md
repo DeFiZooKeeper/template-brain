@@ -1,8 +1,9 @@
 # MEMORY.md
 
-# Agent learnings, key decisions, and domain knowledge积累 here over time.
-# Keep entries concise, formatted, and git-committable.
+# Company/team knowledge, decisions, and learnings accumulate here
+# Keep entries concise, formatted, and git-committable
+# Avoid personal/private info — many people can trigger this agent
 
 ## Recent Entries
 
-_(Add timestamped entries as you learn or make decisions)_
+_(Add timestamped entries: decisions, conventions, who does what, lessons learned)_

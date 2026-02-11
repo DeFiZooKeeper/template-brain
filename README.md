@@ -1,22 +1,24 @@
 # {{AGENT_NAME}} Brain Template
 
-A reusable skeleton for new specialist agent brains in DeFiZoo.
+A reusable skeleton for specialist agent brains in DeFiZoo — **optimized for company-wide Discord** with many people and busy channels.
 
 ## What This Is
 
 This template provides the standard workspace structure for DeFiZoo specialist agents:
-- `AGENTS.md` — Role, responsibilities, and workflow
-- `IDENTITY.md` — Name, creature type, vibe, emoji
-- `SOUL.md` — Personality, principles, safety rules
-- `TOOLS.md` — GitHub setup, model providers, Discord channels
-- `USER.md` — Human operator info
-- `HEARTBEAT.md` — Comments only, no active heartbeat
-- `MEMORY.md` — Agent learnings accumulate here
+- `AGENTS.md` — Operations manual, rules, workflow (group chat, many people)
+- `BOOTSTRAP.md` — First-run ritual: confirm identity, replace placeholders, then delete
+- `IDENTITY.md` — Name, creature, vibe, emoji
+- `SOUL.md` — Personality, values, boundaries (team-serving)
+- `TOOLS.md` — Discord channels, repos, agent roster
+- `USER.md` — Company context, humans vs AI colleagues
+- `HEARTBEAT.md` — Periodic task checklist (@mentions, shared inbox)
+- `MEMORY.md` — Company/team knowledge (decisions, conventions)
 
 ## How It Connects
 
 This brain works as an isolated session within the DeFiZoo orchestrator:
 - Zoo Keeper routes questions to the appropriate specialist
+- Agents serve the whole team in Discord — many people, many channels
 - Each brain keeps domain knowledge self-contained
 - All knowledge evolution happens via git commits and PRs
 
@@ -31,17 +33,21 @@ gh repo create DeFiZooKeeper/{{AGENT_ID}}-brain --public --description "{{AGENT_
 # Or create manually at https://github.com/new
 ```
 
-### Step 2: Clone and Replace Placeholders
+### Step 2: Clone Template and Run Bootstrap
 
 ```bash
-git clone https://github.com/DeFiZooKeeper/{{AGENT_ID}}-brain.git
-cd {{AGENT_ID}}-brain
+git clone https://github.com/DeFiZooKeeper/template-brain.git
+cd template-brain
+# Rename to your agent's brain repo, or copy contents into a new repo
 
-# Replace all {{PLACEHOLDER}} tokens:
-# - {{AGENT_ID}} → e.g., "frontend", "solidity", "ops"
-# - {{AGENT_NAME}} → e.g., "Frontend Elephant", "Solidity Monkey"
-# - {{EMOJI}} → e.g., "🐘", "🐒"
-# - {{DOMAIN}} → e.g., "frontend", "smart contracts", "devops"
+# Option A: Run the agent — BOOTSTRAP.md guides the first-run ritual.
+# The agent will ask "Which specialist am I?" and replace placeholders.
+
+# Option B: Replace placeholders manually before first run:
+# - {{AGENT_ID}} → e.g., "frontend", "solidity", "api"
+# - {{AGENT_NAME}} → e.g., "Frontend Falcon", "Solidity Shark"
+# - {{EMOJI}} → e.g., "🦅", "🦈"
+# - {{DOMAIN}} → e.g., "frontend", "smart contracts"
 ```
 
 ### Step 3: Update Orchestrator Registration
@@ -50,6 +56,8 @@ Edit these files in the orchestrator repo (`workspace/`):
 - `AGENTS.md` — Add agent row to roster table
 - `setup-brains.sh` — Add brain to `BRAIN_REPOS` and loops
 - `state/openclaw.json` — Add agent to `agents.list`, `tools.agentToAgent.allow`, and `bindings`
+
+**Agent-to-agent:** Specialists query each other (and HR) via `sessions_send`. Enable `tools.agentToAgent.enabled: true` and add all agents to `tools.agentToAgent.allow`. Each agent's TOOLS.md has the agent roster — keep it in sync across repos.
 
 ### Step 4: Wire in Docker (if applicable)
 
@@ -66,13 +74,14 @@ Add the brain to `docker-compose.yml` services or orchestration config if using 
 
 | File | Purpose |
 |------|---------|
-| `AGENTS.md` | Role definition and workflow |
-| `IDENTITY.md` | Agent identity fields |
-| `SOUL.md` | Personality and principles |
-| `TOOLS.md` | Tools and access setup |
-| `USER.md` | Human operator info |
-| `HEARTBEAT.md` | Empty (comments only) |
-| `MEMORY.md` | Agent learnings accumulate here |
+| `AGENTS.md` | Operations manual, rules, workflow (group chat) |
+| `BOOTSTRAP.md` | First-run ritual — delete after setup |
+| `SOUL.md` | Personality, values, boundaries (team-serving) |
+| `IDENTITY.md` | Name, creature, vibe, emoji |
+| `TOOLS.md` | Discord channels, repos, agent roster |
+| `USER.md` | Company context, humans vs AI colleagues |
+| `HEARTBEAT.md` | Periodic task checklist (@mentions, inbox) |
+| `MEMORY.md` | Company/team knowledge |
 
 ## Next Steps After Template Setup
 
